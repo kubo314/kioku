@@ -384,6 +384,8 @@ let random_num1 = 0;
 
 let count = 0;
 document.querySelector("#next").addEventListener("click", function(){
+    document.querySelector("p").textContent = "";
+    
     let memo_data = JSON.parse(localStorage.getItem("memo"));
     memo_data[random_num1] = document.querySelector("#input_c1").value;
     memo_data[random_num0] = document.querySelector("#input_c0").value;
@@ -432,6 +434,12 @@ document.querySelector("#c1").addEventListener("click", function(){
     count = 1;
 });
 
+element = document.querySelector(".box");
+element.addEventListener('selectstart', function(){
+    element.addEventListener('mouseup', function(event) {
+        document.querySelector("p").textContent = window.getSelection().toString() + " いつ";
+    });
+});
 
 
 function getRandom(min, max) {
