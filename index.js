@@ -393,8 +393,8 @@ document.querySelector("#next").addEventListener("click", function(){
     document.querySelector("#input_c0").style.display = "none";
     document.querySelector("#input_c1").style.display = "none";
     document.body.style.background = "#fff";
-    random_num0 = getRandom(0, cards.lenght);
-    random_num1 = getRandom(random_num0, cards.lenght);
+    random_num0 = getRandom(0, cards.length);
+    random_num1 = getRandom(random_num0, cards.length);
     document.querySelector("#tc0").textContent = "　 " + cards[random_num0];
     document.querySelector("#tc1").textContent = "　 " + cards[random_num1];
 
