@@ -412,7 +412,7 @@ document.querySelector("#next").addEventListener("click", function(){
 document.querySelector("#c0").addEventListener("click", function(){
     if (count == 0) {
         document.querySelector("#tc0").textContent = "⭕️" + document.querySelector("#tc0").textContent.substr(1);
-        document.querySelector("#tc1").textContent = "❌" + document.querySelector("#tc0").textContent.substr(1);
+        document.querySelector("#tc1").textContent = "❌" + document.querySelector("#tc1").textContent.substr(1);
         
         document.body.style.background = "rgb(171,191,240)";
         document.querySelector("#input_c0").style.display = "";
