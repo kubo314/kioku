@@ -372,7 +372,7 @@ const cards = [
     "アメリカで同時多発テロ事件が発生し、その後、アフガニスタン攻撃、イラク戦争につながりました。"
 ];
 
-document.querySelector("#percent").textContent = orgCeil(Number(localStorage.getItem("count_correct")) / Number(localStorage.getItem("count")) * 100, 0.1) + "%";
+document.querySelector("#percent").textContent = orgCeil(Number(localStorage.getItem("count_correct")) / Number(localStorage.getItem("count")) * 100, 10) + "%";
 
 let local_strage_data = localStorage.getItem("memo");
 if (local_strage_data == null) {
@@ -424,7 +424,7 @@ document.querySelector("#c0").addEventListener("click", function(){
         localStorage.setItem("count_correct", Number(localStorage.getItem("count_correct")) + 1);
     }
 
-    document.querySelector("#percent").textContent = orgCeil(Number(localStorage.getItem("count_correct")) / Number(localStorage.getItem("count")) * 100, 0.1) + "%";
+    document.querySelector("#percent").textContent = orgCeil(Number(localStorage.getItem("count_correct")) / Number(localStorage.getItem("count")) * 100, 10) + "%";
     count = 1;
 });
 document.querySelector("#c1").addEventListener("click", function(){
@@ -436,7 +436,7 @@ document.querySelector("#c1").addEventListener("click", function(){
         document.querySelector("#input_c0").style.display = "";
         document.querySelector("#input_c1").style.display = "";
     }
-    document.querySelector("#percent").textContent = orgCeil(Number(localStorage.getItem("count_correct")) / Number(localStorage.getItem("count")) * 100, 0.1) + "%";
+    document.querySelector("#percent").textContent = orgCeil(Number(localStorage.getItem("count_correct")) / Number(localStorage.getItem("count")) * 100, 10) + "%";
     
     count = 1;
 });
