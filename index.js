@@ -372,10 +372,13 @@ const cards = [
     "アメリカで同時多発テロ事件が発生し、その後、アフガニスタン攻撃、イラク戦争につながりました。"
 ];
 
+document.querySelector("#percent").textContent = Number(localStorage.getItem("count_correct")) / Number(localStorage.getItem("count")) * 100 + "%";
 
 let local_strage_data = localStorage.getItem("memo");
 if (local_strage_data == null) {
-    localStorage.setItem("memo", JSON.stringify(["",null,"","","","",null,null,null,null,"",null,"",null,null,"",null,"",null,"",null,null,"",null,null,null,null,null,null,null,null,null,"593","","","",null,null,null,null,null,null,null,null,null,null,null,null,"","710","",null,null,"","",null,"",null,null,"794","797",null,"",null,null,null,null,"",null,null,"",null,null,"",null,null,"935〜",null,"",null,null,null,null,null,null,null,null,null,"1221",null,null,"",null,"",null,null,null,"","鎌倉中期",null,null,"","","",null,null,"","鎌倉時代の後","","","",null,null,"",null,null,null,"1485",null,"室町中期　1467",null,null,"1392",null,null,null,null,null,null,null,null,null,"750〜",null,null,"","",null,null,null,"",null,null,null,"",null,null,"1560",null,"","","1582",null,"","",null,null,null,null,"",null,null,null,null,null,null,"",null,"",null,"",null,null,null,null,null,null,null,"",null,null,null,null,"",null,null,null,null,"","",null,"",null,null,null,null,null,null,null,"",null,"江戸後期",null,null,null,null,null,null,"",null,"","",null,null,"",null,"","",null,null,"",null,"1640　ピューリタン革命以降",null,null,null,"1787","1789〜","1804","","",null,null,null,"1857",null,null,"",null,"",null,null,null,"","","","",null,"",null,"1867","",null,"明治元年","","",null,"","",null,"1876　明治8年","1875　明治初期",null,"",null,"1873〜","",null,"1868〜",null,null,null,"","","","1874〜　明治初期","",null,null,null,null,null,null,null,"","","1895",null,"",null,null,null,"","","","明治38","",null,null,"1886　明治初期",null,"1911","","1886","1989 大正初期","","1895　明治28",null,"1915　第一次世界大戦中",null,null,null,"","大正初期","1919 大正8年",null,null,"1920 大正初期",null,"第一次世界大戦後","",null,null,"",null,"","1911","1923","1929",null,null,"",null,"1928","",null,"1936","","","",null,"1941〜","","",null,null,"","","1945","1947　終戦後","1945","1950年代なかば〜激化","","1949","1950",null,null,"1950〜","1951","1952","","1956",null,null,"","1972","","1978","","1990〜","","undefined"]));
+    localStorage.setItem("memo", JSON.stringify([...Array(cards.length)]));
+    localStorage.setItem("count", 0);
+    localStorage.setItem("count_correct", 0);
 }
 let local_strage_array = JSON.parse(localStorage.getItem("memo"));
 
@@ -398,13 +401,13 @@ document.querySelector("#next").addEventListener("click", function(){
     document.querySelector("#tc0").textContent = "　 " + cards[random_num0];
     document.querySelector("#tc1").textContent = "　 " + cards[random_num1];
 
-
-
     document.querySelector("#c0").style.order = getRandom(0, 1);
 
     document.querySelector("#input_c0").value = JSON.parse(localStorage.getItem("memo"))[random_num0];
     document.querySelector("#input_c1").value = JSON.parse(localStorage.getItem("memo"))[random_num1];
 
+    localStorage.setItem("count", Number(localStorage.getItem("count")) + 1);
+    
     count = 0;
 });
 
@@ -417,7 +420,11 @@ document.querySelector("#c0").addEventListener("click", function(){
         document.body.style.background = "rgb(171,191,240)";
         document.querySelector("#input_c0").style.display = "";
         document.querySelector("#input_c1").style.display = "";
+
+        localStorage.setItem("count_correct", Number(localStorage.getItem("count_correct")) + 1);
     }
+
+    document.querySelector("#percent").textContent = Number(localStorage.getItem("count_correct")) / Number(localStorage.getItem("count")) * 100 + "%";
     count = 1;
 });
 document.querySelector("#c1").addEventListener("click", function(){
@@ -429,10 +436,10 @@ document.querySelector("#c1").addEventListener("click", function(){
         document.querySelector("#input_c0").style.display = "";
         document.querySelector("#input_c1").style.display = "";
     }
+    document.querySelector("#percent").textContent = Number(localStorage.getItem("count_correct")) / Number(localStorage.getItem("count")) * 100 + "%";
+    
     count = 1;
 });
-
-
 
 
 function getRandom(min, max) {
