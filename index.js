@@ -372,7 +372,7 @@ const cards = [
     "アメリカで同時多発テロ事件が発生し、その後、アフガニスタン攻撃、イラク戦争につながりました。"
 ];
 
-document.querySelector("#percent").textContent = Number(localStorage.getItem("count_correct")) / Number(localStorage.getItem("count")) * 100 + "%";
+document.querySelector("#percent").textContent = orgCeil(Number(localStorage.getItem("count_correct")) / Number(localStorage.getItem("count")) * 100, 0.1) + "%";
 
 let local_strage_data = localStorage.getItem("memo");
 if (local_strage_data == null) {
