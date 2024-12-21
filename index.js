@@ -434,17 +434,7 @@ document.querySelector("#c1").addEventListener("click", function(){
     count = 1;
 });
 
-element = document.querySelector(".box");
-element.addEventListener('selectstart', function(){
-    element.addEventListener('mouseup', function(event) {
-        document.querySelector("p").textContent = window.getSelection().toString() + " いつ";
-    });
-});
-element.addEventListener('selectstart', function(){
-    element.addEventListener('touchend', function(event) {
-        document.querySelector("p").textContent = window.getSelection().toString() + " いつ";
-    });
-});
+
 
 
 function getRandom(min, max) {
