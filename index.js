@@ -440,6 +440,11 @@ element.addEventListener('selectstart', function(){
         document.querySelector("p").textContent = window.getSelection().toString() + " いつ";
     });
 });
+element.addEventListener('selectstart', function(){
+    element.addEventListener('touchend', function(event) {
+        document.querySelector("p").textContent = window.getSelection().toString() + " いつ";
+    });
+});
 
 
 function getRandom(min, max) {
