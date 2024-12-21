@@ -372,25 +372,70 @@ const cards = [
     "アメリカで同時多発テロ事件が発生し、その後、アフガニスタン攻撃、イラク戦争につながりました。"
 ];
 
-document.querySelector("#next").addEventListener("click", function () {
+
+let local_strage_data = localStorage.getItem("memo");
+if (local_strage_data == null) {
+    localStorage.setItem("memo", JSON.stringify([...Array(cards.length)]));
+}
+let local_strage_array = JSON.parse(localStorage.getItem("memo"));
+
+let random_num0 = 0;
+let random_num1 = 0;
+
+let count = 0;
+document.querySelector("#next").addEventListener("click", function(){
+    let memo_data = JSON.parse(localStorage.getItem("memo"));
+    memo_data[random_num1] = document.querySelector("#input_c1").value;
+    memo_data[random_num0] = document.querySelector("#input_c0").value;
+    
+    localStorage.setItem("memo", JSON.stringify(memo_data));
+
+    document.querySelector("#input_c0").style.display = "none";
+    document.querySelector("#input_c1").style.display = "none";
     document.body.style.background = "#fff";
-    const random_num0 = getRandom(0, cards.length);
-    const random_num1 = getRandom(random_num0, cards.length)
-    document.querySelector("#c0").textContent = cards[random_num0];
-    document.querySelector("#c1").textContent = cards[random_num1];
+    random_num0 = getRandom(0, 5);
+    random_num1 = getRandom(random_num0, 5);
+    document.querySelector("#tc0").textContent = "　 " + cards[random_num0];
+    document.querySelector("#tc1").textContent = "　 " + cards[random_num1];
+
+
 
     document.querySelector("#c0").style.order = getRandom(0, 1);
+
+    document.querySelector("#input_c0").value = JSON.parse(localStorage.getItem("memo"))[random_num0];
+    document.querySelector("#input_c1").value = JSON.parse(localStorage.getItem("memo"))[random_num1];
+
+    count = 0;
 });
-document.querySelector("#c0").addEventListener("click", function () {
-    document.body.style.background = "rgb(171,191,240)";
+
+
+document.querySelector("#c0").addEventListener("click", function(){
+    if (count == 0) {
+        document.querySelector("#tc0").textContent = "⭕️" + document.querySelector("#tc0").textContent.substr(1);
+        document.querySelector("#tc1").textContent = "❌" + document.querySelector("#tc0").textContent.substr(1);
+        
+        document.body.style.background = "rgb(171,191,240)";
+        document.querySelector("#input_c0").style.display = "";
+        document.querySelector("#input_c1").style.display = "";
+    }
+    count = 1;
 });
-document.querySelector("#c1").addEventListener("click", function () {
-    document.body.style.background = "rgb(245,168,163)";
+document.querySelector("#c1").addEventListener("click", function(){
+    if (count == 0) {
+        document.querySelector("#tc0").textContent = "⭕️" + document.querySelector("#tc0").textContent.substr(1);
+        document.querySelector("#tc1").textContent = "❌" + document.querySelector("#tc1").textContent.substr(1);
+        
+        document.body.style.background = "rgb(245,168,163)";
+        document.querySelector("#input_c0").style.display = "";
+        document.querySelector("#input_c1").style.display = "";
+    }
+    count = 1;
 });
+
 
 
 function getRandom(min, max) {
-    let random = Math.floor(Math.random() * (max + 1 - min)) + min;
+    let random = Math.floor( Math.random() * (max + 1 - min) ) + min;
 
     return random;
 }
