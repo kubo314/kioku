@@ -384,8 +384,6 @@ let random_num1 = 0;
 
 let count = 0;
 document.querySelector("#next").addEventListener("click", function(){
-    document.querySelector("p").textContent = "　";
-    
     let memo_data = JSON.parse(localStorage.getItem("memo"));
     memo_data[random_num1] = document.querySelector("#input_c1").value;
     memo_data[random_num0] = document.querySelector("#input_c0").value;
