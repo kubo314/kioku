@@ -424,7 +424,7 @@ document.querySelector("#c0").addEventListener("click", function(){
         localStorage.setItem("count_correct", Number(localStorage.getItem("count_correct")) + 1);
     }
 
-    document.querySelector("#percent").textContent = Number(localStorage.getItem("count_correct")) / Number(localStorage.getItem("count")) * 100 + "%";
+    document.querySelector("#percent").textContent = orgCeil(Number(localStorage.getItem("count_correct")) / Number(localStorage.getItem("count")) * 100, 0.1) + "%";
     count = 1;
 });
 document.querySelector("#c1").addEventListener("click", function(){
@@ -436,7 +436,7 @@ document.querySelector("#c1").addEventListener("click", function(){
         document.querySelector("#input_c0").style.display = "";
         document.querySelector("#input_c1").style.display = "";
     }
-    document.querySelector("#percent").textContent = Number(localStorage.getItem("count_correct")) / Number(localStorage.getItem("count")) * 100 + "%";
+    document.querySelector("#percent").textContent = orgCeil(Number(localStorage.getItem("count_correct")) / Number(localStorage.getItem("count")) * 100, 0.1) + "%";
     
     count = 1;
 });
@@ -446,4 +446,7 @@ function getRandom(min, max) {
     let random = Math.floor( Math.random() * (max + 1 - min) ) + min;
 
     return random;
+}
+function orgCeil(value, base) {
+    return Math.ceil(value * base) / base;
 }
