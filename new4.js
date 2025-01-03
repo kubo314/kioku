@@ -1,20 +1,3 @@
-<!DOCTYPE html>
-<html lang="ja">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-
-    </style>
-</head>
-
-<body>
-    <input type="text">
-    <button>移動</button>
-    <main></main>
-    <script>
         function wiki(url) {
             (async function () {
                 const parser = new DOMParser();
@@ -66,7 +49,3 @@
             wiki(document.querySelector("input").value);
             window.location.href = window.location.href.replace(location.search , '') + "?url=" + document.querySelector("input").value;
         });
-    </script>
-</body>
-
-</html>
