@@ -47,5 +47,4 @@
         });
         document.querySelector("button").addEventListener("click", function () {
             wiki(document.querySelector("input").value);
-            window.location.href = window.location.href.replace(location.search , '') + "?url=" + document.querySelector("input").value;
         });
