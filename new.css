@@ -1,4 +1,85 @@
+.box {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+input {
+    width: 100%;
+    font-size: large;
+    display: block;
+    padding: 10px;
+    border: solid #a0a0a0;
+    border-radius: 5px;
+    font-size: large;
+    outline: none;
+    box-sizing: content-box;
+}
+
+button {
+    margin-left: 10px;
+    outline: none;
+    height: 40px;
+    text-align: center;
+    width: 130px;
+    border-radius: 4000px;
+    background: #fff;
+    border: 2px solid #1ECD97;
+    color: #1ECD97;
+    letter-spacing: 1px;
+    text-shadow: 0;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+button:hover {
+    color: white;
+    background: #1ECD97;
+}
+
+button:active {
+    letter-spacing: 2px;
+}
+
+button:after {
+    content: "GO";
+}
+
+.onclic {
+    width: 40px;
+    border-color: #bbbbbb;
+    border-width: 3px;
+    font-size: 0;
+    border-left-color: #1ECD97;
+    animation: rotating 2s 0.25s linear infinite;
+}
+
+.onclic:after {
+    content: "";
+}
+
+.onclic:hover {
+    color: #1ECD97;
+    background: white;
+}
+
+@keyframes rotating {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+main {
+    width: 100%;
+}
+
 table, td, th {
     border: 0.5px #000 solid;
     border-collapse: collapse;
 }
+
