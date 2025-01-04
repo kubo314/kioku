@@ -18,7 +18,7 @@
                         img.setAttribute("src", "https:" + src);
                     }
                     if (srcset) {
-                        img.removeAttribute("srcset");
+                        img.setAttribute("srcset", "https:" + srcset);
                     }
                 });
 
